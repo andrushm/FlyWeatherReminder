@@ -1,0 +1,43 @@
+{
+  "name": "FlyWeatherReminder",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description" : "This extention tell you when will be the best weather to fly.",
+  "permissions" : [
+    "notifications"
+  ],
+//  "icons": { "16": "icons/sensWind_icon.jpg", "48": "icons/sensWind_icon.jpg", "128": "icons/sensWind_icon.jpg" },
+  "omnibox": { "keyword" : "fly" },
+  "browser_action": {
+//    "default_icon": { "19": "sensWind_icon.jpg", "38": "sensWind_icon.jpg" },
+    "default_title": "That's the tool tip",
+    "default_popup": "browser-action/popup.html",
+    "permissions": [
+      "contextMenus",
+      "http://api.openweathermap.org/",
+      "notifications"
+    ]
+//    "scripts": ["background/weather.js"]
+  },
+  "background": {
+    "scripts": ["background/jquery-2.2.4.js", "background/weather.js", "background/background.js"],
+    "pages": ["background/background.html"],
+    "persistent": false,
+    "permissions": [
+      "contextMenus",
+      "http://api.openweathermap.org/",
+      "notifications"
+    ]
+  },
+  "web_accessible_resources": [
+    "/icons/sensWind_icon.jpg"
+  ],
+//  "chrome_url_overrides" : {
+//    "newtab": "newtab/newtab.html"
+//  },
+//  "content_scripts": [{
+//    "matches": ["http://*/*", "https://*/*"],
+//    "js": ["content.js"]
+//  }],
+  "devtools_page": "devtools/devtools.html"
+}
